@@ -1,39 +1,59 @@
-import {AppShell,Burger, Flex, Title} from "@mantine/core";;
+import {AppShell,Burger, Flex, Title,Box, Center, Space,Divider, Button, Container} from "@mantine/core";;
 import { Toggle } from "../components/Toggle";
 import { Navbar } from "../components/NavBar";
-import { useDisclosure } from "@mantine/hooks";
-import { Carousels } from "../components/Carousels";
-
+import { useDisclosure, useScrollIntoView } from "@mantine/hooks";
+import { HeroHeader } from "../components/HeroHeader";
+import { ProjectDisplay } from "../components/ProjectsDisplay";
+import {AboutMeTimeLine} from "../components/AboutMeTimeLine"
+import { Header } from "../components/Header";
 function Portfolio() {
-    const [opened, { toggle }] = useDisclosure();
+    const [opened, { toggle }] = useDisclosure(false);
+    const { scrollIntoView: scrollToSection1, targetRef: section1Ref } = useScrollIntoView<HTMLDivElement>({
+        offset: 70, // Optional: Add an offset if you have a fixed header
+      });
+    
+      const { scrollIntoView: scrollToSection2, targetRef: section2Ref } = useScrollIntoView<HTMLDivElement>({
+        offset: 70,
+      });
+    
+      const { scrollIntoView: scrollToSection3, targetRef: section3Ref } = useScrollIntoView<HTMLDivElement>({
+        offset: 70,
+      });
     return (
         <AppShell
-            header={{ height: 60}}
+            header={{ height: 70 }}
             navbar={{
-            width: 310,
+            width: 350,
             breakpoint: 'sm',
-            collapsed: { mobile: !opened },
+            collapsed: { mobile: !opened, desktop:!opened},
             }}
-            padding="md"
-        
+            padding="lg"
         >  
             <AppShell.Header zIndex={300}>
                 
                
             
-    
-                <Flex justify="space-between" align="center" p="md">
+                
+                <Flex 
+                    justify="space-between" 
+                    align="center" 
+                    p="md" 
+                    direction='row' 
+                    gap='sm'
+                >
                     <Burger
                         opened={opened}
                         onClick={toggle}
-                        hiddenFrom="sm"
+                        
                         size="sm"
                     />
-                    <div style={{ width: 100 }}></div>  
-                    <Title order={2} style={{ flex: 1, textAlign: "center" }}>
-                        My Portfolio
-                    </Title>
+                    <Header
+                        onClick1={scrollToSection1}
+                        onClick2={scrollToSection2}
+                        onClick3={scrollToSection3}
+                    />
                     <Toggle/>
+                    
                 </Flex>
                 
                 
@@ -43,12 +63,64 @@ function Portfolio() {
             </AppShell.Header>
 
             <AppShell.Navbar p="md" zIndex={400} withBorder={false}>
-                <Navbar/>
+                <Navbar />
             </AppShell.Navbar>
 
             <AppShell.Main>
+                <Container>
+                <Center >
+                    <Box 
+                        className="container"
+                        id="section1" 
+                        ref={section1Ref} 
+                        style={{height:'100vh', width:'100vh',display:'flex', alignItems:'flex-start'}}
+                        >
+                        <HeroHeader onClick={toggle}/>
+                    </Box>
+                </Center>
+                </Container>
+                
+                <Center>
+                    <Box id="section2" ref={section2Ref} style={{height:'100vh', width:'100vh',display:'flex', alignItems:'flex-start',scrollMarginTop:'80px'} }>
+                        <Flex
+                            direction='column'
+                            gap='xl'>
+                            <Title
+                                size='10vh'
+                                fw={900}
+                            >
+                            About Me
+                            </Title>
+                            <Space h='md'/>
+                     
+                    
+                            <AboutMeTimeLine/>
+                    
+                        </Flex>
+                    </Box>
+                </Center>
+                <Container>
+                <Box id="section3" ref={section3Ref} style={{height:'100vh', display:'flex', alignItems:'flex-start'}}>
+                    <Flex
+                        direction='column'
+                        gap='xl'
+                        align='center'
+                        >
+                        <Title
+                            size='10vh'
+                            fw={900}
+                        >
+                            Projects
+                        </Title>
+                        <Space />
+                    
+                        <ProjectDisplay/>
+                        
+                    </Flex>
+                </Box>
+                </Container>
                
-                <Carousels/>
+                
                 
             </AppShell.Main>
     

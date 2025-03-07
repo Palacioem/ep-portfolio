@@ -15,8 +15,8 @@ export function Toggle() {
         size="md"
         aria-label="Toggle color scheme"
       >
-        <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} />
-        <IconMoon className={cx(classes.icon, classes.dark)} stroke={1.5} />
+        {computedColorScheme === 'dark' ? <IconSun className={cx(classes.icon, classes.light)} stroke={1.5} /> 
+        : <IconMoon  stroke={1.5} style={{color:'black'}} />}
       </ActionIcon>
     </Group>
   );
