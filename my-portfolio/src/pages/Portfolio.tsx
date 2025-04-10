@@ -1,4 +1,4 @@
-import {AppShell,Burger, Flex, Title,Box, Center, Space,Divider, Button, Container} from "@mantine/core";;
+import {AppShell,Burger, Flex, Title,Box, Center, Space,Container} from "@mantine/core";;
 import { Toggle } from "../components/Toggle";
 import { Navbar } from "../components/NavBar";
 import { useDisclosure, useScrollIntoView } from "@mantine/hooks";
@@ -9,7 +9,7 @@ import { Header } from "../components/Header";
 function Portfolio() {
     const [opened, { toggle }] = useDisclosure(false);
     const { scrollIntoView: scrollToSection1, targetRef: section1Ref } = useScrollIntoView<HTMLDivElement>({
-        offset: 70, // Optional: Add an offset if you have a fixed header
+        offset: 50, // Optional: Add an offset if you have a fixed header
       });
     
       const { scrollIntoView: scrollToSection2, targetRef: section2Ref } = useScrollIntoView<HTMLDivElement>({
@@ -23,9 +23,10 @@ function Portfolio() {
         <AppShell
             header={{ height: 70 }}
             navbar={{
-            width: 350,
+            width: 320,
             breakpoint: 'sm',
             collapsed: { mobile: !opened, desktop:!opened},
+            
             }}
             padding="lg"
         >  
@@ -40,6 +41,7 @@ function Portfolio() {
                     p="md" 
                     direction='row' 
                     gap='sm'
+                    
                 >
                     <Burger
                         opened={opened}
@@ -73,7 +75,7 @@ function Portfolio() {
                         className="container"
                         id="section1" 
                         ref={section1Ref} 
-                        style={{height:'100vh', width:'100vh',display:'flex', alignItems:'flex-start'}}
+                        style={{height:'100vh', width:'100vh',display:'flex', alignItems:'flex-start',marginBottom:250}}
                         >
                         <HeroHeader onClick={toggle}/>
                     </Box>
@@ -81,7 +83,7 @@ function Portfolio() {
                 </Container>
                 
                 <Center>
-                    <Box id="section2" ref={section2Ref} style={{height:'100vh', width:'100vh',display:'flex', alignItems:'flex-start',scrollMarginTop:'80px'} }>
+                    <Box id="section2" ref={section2Ref} style={{height:'100vh', width:'100vh',display:'flex', alignItems:'flex-start',scrollMarginTop:'80px',marginBottom:250} }>
                         <Flex
                             direction='column'
                             gap='xl'>
@@ -99,8 +101,8 @@ function Portfolio() {
                         </Flex>
                     </Box>
                 </Center>
-                <Container>
-                <Box id="section3" ref={section3Ref} style={{height:'100vh', display:'flex', alignItems:'flex-start'}}>
+                
+                <Box id="section3" ref={section3Ref} style={{height:'100vh', display:'flex', alignItems:'flex-start',scrollMarginTop:'80px'}}>
                     <Flex
                         direction='column'
                         gap='xl'
@@ -118,7 +120,7 @@ function Portfolio() {
                         
                     </Flex>
                 </Box>
-                </Container>
+               
                
                 
                 

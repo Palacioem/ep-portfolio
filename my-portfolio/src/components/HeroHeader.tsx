@@ -40,18 +40,22 @@ export function HeroHeader({ onClick }: HeroProps) {
             <List.Item>
               <b>Recent Computer Science graduate</b> – ready to tackle real-world challenges in tech.
             </List.Item>
-            <List.Item>
-              <b>Transforming ideas</b> – into functional, scalable, and secure web applications.
-            </List.Item>
+           
             
           </List>
 
-          <Group mt={30}>
+          <Group mt={35} grow wrap='nowrap' preventGrowOverflow={false}>
             <Button radius="xl" size="md" className={classes.control} onClick={onClick}>
               Contact Me
             </Button>
-            <Button variant="default" radius="xl" size="md" className={classes.control}>
-              Source code
+            <Button 
+              variant="default" 
+              radius="xl" 
+              size="md" 
+              className={classes.control} 
+              onClick={() => window.open('https://github.com/Palacioem/ep-portfolio', '_blank')}
+            >
+              Source Code
             </Button>
           </Group>
         </div>

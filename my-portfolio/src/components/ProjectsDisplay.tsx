@@ -1,13 +1,14 @@
 import {
-    IconBuildingBank,
-    IconCashBanknote,
+    IconBrandSpotify,
     IconCoin,
-    IconCreditCard,
+    IconCalendarBolt,
     IconReceipt,
-    IconReceiptRefund,
+    IconSunHigh,
     IconReceiptTax,
-    IconRepeat,
-    IconReport,
+    IconBrandThreads,
+    IconGasStation,
+    IconLockCode
+    
   } from '@tabler/icons-react';
   import {
     Anchor,
@@ -22,24 +23,27 @@ import {
   import classes from '../styles/ProjectDisplay.module.css';
 
   import { ProjectCard } from './ProjectCard';
+  import { projectData } from './ProjectData';
 
   const mockdata = [
-    { title: 'Credit cards', icon: IconCreditCard, color: 'violet' },
-    { title: 'Banks nearby', icon: IconBuildingBank, color: 'indigo' },
-    { title: 'Transfers', icon: IconRepeat, color: 'blue' },
-    { title: 'Refunds', icon: IconReceiptRefund, color: 'green' },
-    { title: 'Receipts', icon: IconReceipt, color: 'teal' },
-    { title: 'Taxes', icon: IconReceiptTax, color: 'cyan' },
-    { title: 'Reports', icon: IconReport, color: 'pink' },
-    { title: 'Payments', icon: IconCoin, color: 'red' },
-    { title: 'Cashback', icon: IconCashBanknote, color: 'orange' },
+    { title: 'Logi-Tasks', icon: IconCalendarBolt, color: 'violet' },
+    { title: 'AniSync', icon: IconBrandSpotify, color: 'indigo' },
+    { title: 'Huffman-Hero', icon: IconBrandThreads, color: 'blue' },
+    { title: 'ZKImage', icon: IconLockCode, color: 'green' },
+    { title: 'Helios', icon: IconSunHigh, color: 'pink' },
+    { title: 'Bank Fraud MLP', icon: IconCoin, color: 'red' },
+    { title: 'FuelVisionary', icon: IconGasStation, color: 'orange' }, 
+    { title: 'TBA', icon: IconReceipt, color: 'teal' },
+    { title: 'TBA', icon: IconReceiptTax, color: 'cyan' },
   ];
   
+
+
   export function ProjectDisplay() {
     const theme = useMantineTheme();
     
   
-    const items = mockdata.map((item) => (
+    const items = mockdata.map((item,index) => (
       <Popover width={400} position="bottom" withArrow shadow="md"  arrowSize={30}>
         <Popover.Target>
           <UnstyledButton key={item.title} className={classes.item} >
@@ -50,7 +54,7 @@ import {
           </UnstyledButton>
         </Popover.Target>
         <Popover.Dropdown>
-          <ProjectCard/>
+          <ProjectCard project={projectData[index]}/>
         </Popover.Dropdown>
       </Popover>
     ));

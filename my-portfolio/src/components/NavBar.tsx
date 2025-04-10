@@ -1,17 +1,31 @@
-import { IconBrandLinkedin, IconBrandGithub, IconPlus, IconSearch, IconFileCv,IconBrandPython,IconBrandCpp,IconSql,IconBrandReactNative,IconBrandDjango,IconBrandTypescript} from '@tabler/icons-react';
+import { IconBrandLinkedin, 
+  IconBrandGithub, 
+  IconPlus,
+  IconFileCv,
+  IconBrandPython,
+  IconBrandCpp,
+  IconSql,
+  IconBrandReactNative,
+  IconBrandDjango,
+  IconBrandTypescript,
+  IconBrandNodejs,
+  IconBrandMongodb,
+  IconFileTypeSql,
+  IconBrandAzure,
+
+} from '@tabler/icons-react';
 import {
   ActionIcon,
   Badge,
-  Code,
   Flex,
   Group,
   Text,
-  TextInput,
   Tooltip,
-  UnstyledButton
+  UnstyledButton,
 } from '@mantine/core';
 import classes from "../styles/NavbarSearch.module.css"
 import { UserInfo } from './UserInfo';
+
 
 const links = [
   { icon: IconBrandLinkedin, label: 'Linkedin', notifications: 3,link:'https://www.linkedin.com/in/edwin-palacio-4398792b1/' },
@@ -20,12 +34,19 @@ const links = [
 ];
 
 const collections = [
-  { icon: IconBrandPython, label: 'PYTHON' },
-  { icon: IconBrandCpp, label: 'C++' },
+  {icon: IconBrandPython, label: 'PYTHON' },
+  {icon: IconBrandCpp, label: 'C++' },
   {icon:IconBrandTypescript, label:'TYPESCRIPT'},
   {icon:IconSql, label:'SQL'},
   {icon:IconBrandReactNative,label:'REACT'},
-  {icon:IconBrandDjango, label:'DJANGO'}
+  {icon:IconBrandDjango, label:'DJANGO'},
+  {icon:IconBrandNodejs, label:'EXPRESS'},
+  {icon:IconFileTypeSql, label:'POSTGREQSQL'},
+  {icon:IconBrandMongodb, label:'MONGODB'},
+  {icon:IconBrandAzure, label:'AZURE'},
+
+  
+
   
 ];
 
@@ -67,15 +88,8 @@ export function Navbar() {
         <UserInfo/>
       </div>
 
-      <TextInput
-        placeholder="Search"
-        size="xs"
-        leftSection={<IconSearch size={12} stroke={1.5} />}
-        rightSectionWidth={70}
-        rightSection={<Code className={classes.searchCode}>Ctrl + K</Code>}
-        styles={{ section: { pointerEvents: 'none' } }}
-        mb="sm"
-      />
+     
+    
 
       <div className={classes.section}>
         <div className={classes.mainLinks}>{mainLinks}</div>
@@ -86,8 +100,8 @@ export function Navbar() {
           <Text size="xs" fw={500} c="dimmed">
           Technical Skills
           </Text>
-          <Tooltip label="Create collection" withArrow position="right">
-            <ActionIcon variant="default" size={18}>
+          <Tooltip label="" withArrow position="right">
+            <ActionIcon variant='light' size={18}>
               <IconPlus size={12} stroke={1.5} />
             </ActionIcon>
           </Tooltip>

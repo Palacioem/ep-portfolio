@@ -1,41 +1,46 @@
-import { IconGasStation, IconGauge, IconManualGearbox, IconUsers } from '@tabler/icons-react';
+import { Icon} from '@tabler/icons-react';
 import { Badge, Button, Card, Center, Group, Image, Text } from '@mantine/core';
 import classes from '../styles/ProjectCard.module.css'
 
-const mockdata = [
-  { label: '4 passengers', icon: IconUsers },
-  { label: '100 km/h in 4 seconds', icon: IconGauge },
-  { label: 'Automatic gearbox', icon: IconManualGearbox },
-  { label: 'Electric', icon: IconGasStation },
-];
 
-export function ProjectCard() {
-  const features = mockdata.map((feature) => (
-    <Center key={feature.label}>
-      <feature.icon size={16} className={classes.icon} stroke={1.5} />
-      <Text size="xs">{feature.label}</Text>
+interface props{
+  image: string
+  title: string
+  description: string
+  content: string
+  link: string
+  tech: string[],
+  icons: Icon[],
+}
+
+export function ProjectCard({project}: {project:props}) {
+  if (!project.icons || !project.tech) return null;
+  const features = project.icons.map((IconComponent, index) => (
+    <Center key={index}>
+      <IconComponent size={16} className={classes.icon} stroke={1.5} />
+      <Text size="xs">{project.tech[index]}</Text>
     </Center>
   ));
 
   return (
     <Card withBorder radius="md" className={classes.card}>
       <Card.Section className={classes.imageSection}>
-        <Image src="https://i.imgur.com/ZL52Q2D.png" alt="Tesla Model S" />
+        <Image src={project.image} alt="Tesla Model S" />
       </Card.Section>
 
       <Group justify="space-between" mt="md">
         <div>
-          <Text fw={500}>Tesla Model S</Text>
+          <Text fw={500}>{project.title}</Text>
           <Text fz="xs" c="dimmed">
-            Free recharge at any station
+            {project.description}
           </Text>
         </div>
-        <Badge variant="outline">25% off</Badge>
+        <Badge variant="outline">{project.content}</Badge>
       </Group>
 
       <Card.Section className={classes.section} mt="md">
         <Text fz="sm" c="dimmed" className={classes.label}>
-          Basic configuration
+          Technology Used
         </Text>
 
         <Group gap={8} mb={-8}>
@@ -45,18 +50,15 @@ export function ProjectCard() {
 
       <Card.Section className={classes.section}>
         <Group gap={30}>
-          <div>
-            <Text fz="xl" fw={700} style={{ lineHeight: 1 }}>
-              $168.00
-            </Text>
-            <Text fz="sm" c="dimmed" fw={500} style={{ lineHeight: 1 }} mt={3}>
-              per day
-            </Text>
-          </div>
+        
 
-          <Button radius="xl" style={{ flex: 1 }}>
-            Rent now
-          </Button>
+            <Button 
+            radius="xl" 
+            style={{ flex: 1 }} 
+            onClick={() => window.open(project.link, '_blank')}
+            >
+            Source Code
+            </Button>
         </Group>
       </Card.Section>
     </Card>

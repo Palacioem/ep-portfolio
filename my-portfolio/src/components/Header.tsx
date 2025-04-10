@@ -42,10 +42,11 @@ export function Header({ onClick1, onClick2, onClick3 }: HeaderProps) {
   ));
 
   return (
-    <header className={classes.header} style={{width:'30vh'}}>
+    <header className={classes.header} style={{width:'90vh'}}>
       <Container size="md" className={classes.inner}>
-        <IconCircleDottedLetterE size={40} stroke={1.5}  />
-        <Group gap={5} visibleFrom="xs">
+      <Group gap={15} visibleFrom="xs">
+          <IconCircleDottedLetterE size={40} stroke={1.5}  />
+       
           {items}
         </Group>
       </Container>
