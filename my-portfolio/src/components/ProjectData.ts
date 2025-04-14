@@ -69,7 +69,7 @@ export const projectData = [{
     title:"Helios",
     description:"visualizing and quantifying solar flare intensity through advanced statistical and computational methods, offering insights into both temporal and spatial patterns of solar flare activity.",
     content:"DATA VISUALIZATION",
-    link:"https://github.com/Palacioem",
+    link:"https://github.com/Palacioem/Helios-",
     tech:['R','ggplot2','dplyr'],
     icons:[IconBrandRevolut,IconChartScatter,IconPyramid]
     },
@@ -78,7 +78,7 @@ export const projectData = [{
     title:"Fraid_MLP",
     description:"Built a neural network-based system to detect fraudulent bank transactions using real-world financial data. The model was trained on preprocessed and normalized transaction records, with attention to imbalanced class distribution using class weighting and evaluation metrics like recall, F1-score, and AUC-ROC. Feature engineering included one-hot encoding for categorical variables and MinMax scaling for continuous features. The system was evaluated with rigorous metrics and visualized using confusion matrices and precision-recall curves.",
     content:"NEURAL NETWORKS",
-    link:"https://github.com/Palacioem/Helios-",
+    link:"https://github.com/Palacioem/fraud_dection_MLP",
     tech:['Python','Pytorch','Panda'],
     icons:[IconBrandPython,IconFlame,IconCropLandscape]
     },
