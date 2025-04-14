@@ -38,7 +38,7 @@ export const projectData = [{
     tech:['Django','React(Vite,Typescript)','PostgreSQL','Azure'],
     icons:[IconBrandDjango,IconCodeCircle2,IconSelector,IconBrandAzure]
     },{
-    image:"/images/LogiTask.PNG",
+    image:"/images/Capture.PNG",
     title:"AniSync",
     description:"full-stack web app enabling users to discover, save, and sync anime songs to their Spotify playlists",
     content:"Anime + Sync",
