@@ -34,7 +34,7 @@ export const projectData = [{
     title:"Logi-Task",
     description:"A full-stack web application to streamline client management, automating scheduling and service tracking for small businesses",
     content:"ASK TO SEE DEMO",
-    link:"https://github.com/Palacioem",
+    link:"https://github.com/moisespal/LogiTask",
     tech:['Django','React(Vite,Typescript)','PostgreSQL','Azure'],
     icons:[IconBrandDjango,IconCodeCircle2,IconSelector,IconBrandAzure]
     },{
